@@ -1,24 +1,22 @@
-/* Hintergrundbild */
 body {
     background-image: url(quizbg.jpg);
-    background-size: cover; /* Deckt den gesamten Bildschirm ab */
-    background-position: center; /* Zentriert das Bild */
-    background-repeat: no-repeat; /* Verhindert wiederholtes Bild */
-    margin: 0; /* Entfernt Standard-Margen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-/* Überschrift */
 h1 {
     text-align: center;
     font-size: 50px;
     color: rgb(35, 143, 49);
-    margin-top: 20px; /* Etwas Platz oben */
+    margin-top: 20px;
 }
 
-/* Startbutton */
 #idStarte {
     background-color: rgb(114, 148, 21);
-    border: 2px solid rgb(12, 98, 23); /* Vollständige Border-Definition */
+    border: 2px solid rgb(12, 98, 23);
     border-radius: 15px;
     color: rgb(12, 98, 23);
     padding: 32px 32px;
@@ -29,18 +27,16 @@ h1 {
     margin: 5% auto;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 black;
-    transition: background-color 0.3s; /* Sanfter Übergang bei Hover */
+    transition: background-color 0.3s;
 }
 
-/* Startbutton Hover-Effekt */
 #idStarte:hover {
     background-color: rgb(43, 174, 33);
 }
 
-/* Frage-Button */
 #idFrage {
     background-color: rgb(114, 148, 21);
-    border: 2px solid rgb(8, 72, 43); /* Vollständige Border-Definition */
+    border: 2px solid rgb(8, 72, 43);
     border-radius: 15px;
     padding: 15px 32px;
     text-align: center;
@@ -51,10 +47,9 @@ h1 {
     color: rgb(8, 72, 43);
 }
 
-/* Antwort-Buttons */
 .classAntworten {
     background-color: rgb(117, 148, 33);
-    border: 2px solid rgb(5, 30, 8); /* Vollständige Border-Definition */
+    border: 2px solid rgb(5, 30, 8);
     border-radius: 15px;
     color: rgb(5, 30, 8);
     padding: 20px 32px;
@@ -65,19 +60,16 @@ h1 {
     margin: 3%;
     cursor: pointer;
     box-shadow: 0 8px 16px 0 black;
-    transition: background-color 0.3s; /* Sanfter Übergang bei Hover */
+    transition: background-color 0.3s;
 }
 
-/* Container für Antwort-Buttons */
 #idFragen {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-/* Media Queries für kleinere Bildschirme */
-
-/* Für Tablets */
 @media (max-width: 768px) {
     h1 {
         font-size: 40px;
@@ -92,7 +84,6 @@ h1 {
     }
 }
 
-/* Für Smartphones */
 @media (max-width: 480px) {
     h1 {
         font-size: 30px;
@@ -104,6 +95,6 @@ h1 {
     .classAntworten {
         font-size: 18px;
         padding: 10px;
-        width: 100%; /* Volle Breite für bessere Benutzerfreundlichkeit */
+        width: 100%;
     }
 }
