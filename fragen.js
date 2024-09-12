@@ -39,6 +39,8 @@ function starteRunden() {
         // Setzt alle Buttons auf die Hintergrundfarbe grün
         document.querySelectorAll(".classAntworten").forEach(button => {
             button.style.backgroundColor = "lightgreen";
+            button.removeEventListener("click", tippeButton); // Entfernen vorheriger Event-Listener
+            button.addEventListener("click", tippeButton); // Hinzufügen neuer Event-Listener
         });
 
         gesperrt = false;
@@ -52,19 +54,14 @@ function starteRunden() {
         document.getElementById("idAntwort2").innerText = arrayFragenAufbereitet[2];
         document.getElementById("idAntwort3").innerText = arrayFragenAufbereitet[3];
 
-        // Warte auf die Antwort des Benutzers
-        document.querySelectorAll(".classAntworten").forEach(button => {
-            button.addEventListener("click", tippeButton);
-        });
-
         // Stoppt das Quiz nach 6 Sekunden, wenn keine Antwort gewählt wurde
         setTimeout(() => {
-            document.querySelectorAll(".classAntworten").forEach(button => {
-                button.removeEventListener("click", tippeButton);
-            });
             if (!gesperrt) {
-                // Wenn keine Antwort gewählt wurde, wird das Quiz automatisch fortgesetzt
-                starteRunden();
+                // Entfernen der Event-Listener, wenn keine Antwort gewählt wurde
+                document.querySelectorAll(".classAntworten").forEach(button => {
+                    button.removeEventListener("click", tippeButton);
+                });
+                starteRunden(); // Gehe zur nächsten Runde, wenn keine Antwort gewählt wurde
             }
         }, 6000);
 
@@ -81,15 +78,19 @@ function tippeButton(event) {
     gesperrt = true;
     const getippterButton = event.target;
     const buttons = document.querySelectorAll(".classAntworten");
-    
+
     buttons.forEach(button => {
-        button.style.backgroundColor = button.innerText === richtigeAntwort ? "lightgreen" : "lightcoral";
+        if (button.innerText === richtigeAntwort) {
+            button.style.backgroundColor = "lightgreen";
+        } else {
+            button.style.backgroundColor = "lightcoral";
+        }
     });
 
     if (getippterButton.innerText === richtigeAntwort) {
         punkte++;
     }
-    
+
     // Stoppt das Quiz für eine kurze Zeit, um die Antwort zu zeigen
     setTimeout(starteRunden, 2000);
 }
