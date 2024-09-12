@@ -1,13 +1,14 @@
 body {
-    background-image: url(quizbg.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    overflow-x: hidden; /* Verhindert horizontales Scrollen */
+    background-image: url(quizbg.jpg); /* Dein Hintergrundbild */
+    background-size: cover;            /* Bild wird so skaliert, dass es den gesamten Bereich abdeckt */
+    background-position: center;        /* Bild wird zentriert */
+    background-repeat: no-repeat;       /* Verhindert wiederholendes Anzeigen des Bildes */
+    margin: 0;                          /* Entfernt Standard-Margen */
+    padding: 0;                         /* Entfernt Standard-Abstände */
+    min-height: 100vh;                  /* Stellt sicher, dass der Body mindestens die Höhe des Viewports hat */
+    overflow-x: hidden;                 /* Verhindert horizontales Scrollen */
 }
 
-/* Überschrift */
 h1 {
     text-align: center;
     font-size: 50px;
@@ -15,7 +16,6 @@ h1 {
     margin: 20px 0; /* Etwas Platz oben und unten */
 }
 
-/* Startbutton */
 #idStarte {
     background-color: rgb(114, 148, 21);
     border: 2px solid rgb(12, 98, 23); /* Vollständige Border-Definition */
@@ -32,12 +32,10 @@ h1 {
     transition: background-color 0.3s;
 }
 
-/* Hover-Effekt für Startbutton */
 #idStarte:hover {
     background-color: rgb(43, 174, 33);
 }
 
-/* Frage-Button */
 #idFrage {
     background-color: rgb(114, 148, 21);
     border: 2px solid rgb(8, 72, 43); /* Vollständige Border-Definition */
@@ -51,7 +49,6 @@ h1 {
     color: rgb(8, 72, 43);
 }
 
-/* Antwort-Buttons */
 .classAntworten {
     background-color: rgb(117, 148, 33);
     border: 2px solid rgb(5, 30, 8); /* Vollständige Border-Definition */
@@ -68,7 +65,6 @@ h1 {
     transition: background-color 0.3s;
 }
 
-/* Container für Antwort-Buttons */
 #idFragen {
     display: flex;
     flex-wrap: wrap; /* Ermöglicht Zeilenumbruch */
@@ -76,9 +72,6 @@ h1 {
     justify-content: center;
 }
 
-/* Media Queries für kleinere Bildschirme */
-
-/* Für Tablets */
 @media (max-width: 768px) {
     h1 {
         font-size: 40px;
@@ -93,7 +86,6 @@ h1 {
     }
 }
 
-/* Für Smartphones */
 @media (max-width: 480px) {
     h1 {
         font-size: 30px;
