@@ -36,9 +36,9 @@ function mischeFragen() {
 
 function starteRunden() {
     if (rundenZaehler < anzahlRunden) {
-        // Setzt alle Buttons auf transparente Farbe
+        // Setzt alle Buttons auf transparente Farbe und entfernt alte Event-Listener
         document.querySelectorAll(".classAntworten").forEach(button => {
-            button.style.backgroundColor = "transparent"; // Transparent
+            button.style.backgroundColor = "transparent";
             button.removeEventListener("click", tippeButton); // Entfernt alte Event-Listener
         });
 
@@ -66,11 +66,12 @@ function starteRunden() {
                 });
                 starteRunden(); // Gehe zur nächsten Runde
             }
-        }, 6000);
+        }, 6000); // 6 Sekunden für jede Runde
 
         rundenZaehler++;
     } else {
         document.getElementById("idFrage").innerText = `Das Spiel ist beendet. Du hast ${punkte} Punkte erreicht!`;
+        document.getElementById("idStarte").style.display = "block"; // Zeige den Start-Button wieder an
     }
 }
 
@@ -89,6 +90,6 @@ function tippeButton(event) {
         getippterButton.style.backgroundColor = "lightcoral"; // Falsche Antwort rot
     }
 
-    // Verzögerung, um das Ergebnis zu zeigen
+    // Verzögerung, um das Ergebnis zu zeigen und dann zur nächsten Runde überzugehen
     setTimeout(starteRunden, 2000);
 }
