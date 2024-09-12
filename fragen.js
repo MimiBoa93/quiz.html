@@ -36,11 +36,9 @@ function mischeFragen() {
 
 function starteRunden() {
     if (rundenZaehler < anzahlRunden) {
-        // Setzt alle Buttons auf die Hintergrundfarbe grün
+        // Setzt alle Buttons auf transparente Farbe
         document.querySelectorAll(".classAntworten").forEach(button => {
-            button.style.backgroundColor = "lightgreen";
-            button.removeEventListener("click", tippeButton); // Entfernen vorheriger Event-Listener
-            button.addEventListener("click", tippeButton); // Hinzufügen neuer Event-Listener
+            button.style.backgroundColor = "transparent"; // Transparent
         });
 
         gesperrt = false;
@@ -54,12 +52,14 @@ function starteRunden() {
         document.getElementById("idAntwort2").innerText = arrayFragenAufbereitet[2];
         document.getElementById("idAntwort3").innerText = arrayFragenAufbereitet[3];
 
-        // Stoppt das Quiz nach 6 Sekunden, wenn keine Antwort gewählt wurde
+        document.querySelectorAll(".classAntworten").forEach(button => {
+            button.addEventListener("click", tippeButton);
+        });
+
         setTimeout(() => {
             if (!gesperrt) {
-                // Entfernen der Event-Listener, wenn keine Antwort gewählt wurde
                 document.querySelectorAll(".classAntworten").forEach(button => {
-                    button.removeEventListener("click", tippeButton);
+                    button.removeEventListener("click", tippeButton); // Entfernen der Event-Listener
                 });
                 starteRunden(); // Gehe zur nächsten Runde, wenn keine Antwort gewählt wurde
             }
@@ -81,16 +81,16 @@ function tippeButton(event) {
 
     buttons.forEach(button => {
         if (button.innerText === richtigeAntwort) {
-            button.style.backgroundColor = "lightgreen";
+            button.style.backgroundColor = "lightgreen"; // Richtige Antwort grün
         } else {
-            button.style.backgroundColor = "lightcoral";
+            button.style.backgroundColor = "lightcoral"; // Falsche Antworten rot
         }
+        button.removeEventListener("click", tippeButton); // Entfernen der Event-Listener
     });
 
     if (getippterButton.innerText === richtigeAntwort) {
         punkte++;
     }
 
-    // Stoppt das Quiz für eine kurze Zeit, um die Antwort zu zeigen
-    setTimeout(starteRunden, 2000);
+    setTimeout(starteRunden, 2000); // Verzögerung, um die Antwort zu zeigen
 }
