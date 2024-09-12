@@ -1,0 +1,68 @@
+body{
+    background-image: url(quizbg.jpg);
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: rgb(35, 143, 49);
+}
+
+#idStarte{
+    
+background-color: rgb(114, 148, 21);
+border: 20px;
+border-radius: 15px;
+color: rgb(12, 98, 23);
+padding: 32px 32px;
+text-align: center;
+text-decoration: none;
+display: flex;
+font-size: 30px;
+margin: 5% auto;
+cursor: pointer;
+
+}
+
+#idStarte{
+    box-shadow: 0 8px 16px 0 black;
+}
+#idStarte:hover{
+    background-color: rgb(43, 174, 33);
+}
+
+#idFrage {
+    background-color: rgb(114, 148, 21);
+    border: 20px;
+    border-radius: 15px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size:  40px;
+    margin: 10% auto;
+    color: rgb(8, 72, 43);
+}
+
+.classAntworten{
+background-color: rgb(117, 148, 33);
+border: 20px;
+border-radius: 15px;
+color: rgb(5, 30, 8);
+padding: 20px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 25px;
+margin: 3%;
+cursor: pointer;
+}
+.classAntworten{
+    box-shadow: 0 8px 16px 0 black;
+}
+
+#idFragen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
