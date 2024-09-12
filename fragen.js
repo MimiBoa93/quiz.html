@@ -52,16 +52,18 @@ function starteRunden() {
         document.getElementById("idAntwort2").innerText = arrayFragenAufbereitet[2];
         document.getElementById("idAntwort3").innerText = arrayFragenAufbereitet[3];
 
+        // Event-Listener für die Buttons setzen
         document.querySelectorAll(".classAntworten").forEach(button => {
             button.addEventListener("click", tippeButton);
         });
 
         setTimeout(() => {
             if (!gesperrt) {
+                // Entfernen der Event-Listener, wenn keine Antwort gewählt wurde
                 document.querySelectorAll(".classAntworten").forEach(button => {
-                    button.removeEventListener("click", tippeButton); // Entfernen der Event-Listener
+                    button.removeEventListener("click", tippeButton);
                 });
-                starteRunden(); // Gehe zur nächsten Runde, wenn keine Antwort gewählt wurde
+                starteRunden(); // Gehe zur nächsten Runde
             }
         }, 6000);
 
@@ -77,11 +79,6 @@ function tippeButton(event) {
     }
     gesperrt = true;
     const getippterButton = event.target;
-    const buttons = document.querySelectorAll(".classAntworten");
-
-    buttons.forEach(button => {
-        button.removeEventListener("click", tippeButton); // Entfernen der Event-Listener
-    });
 
     // Farbe des angeklickten Buttons ändern
     if (getippterButton.innerText === richtigeAntwort) {
@@ -91,6 +88,11 @@ function tippeButton(event) {
         getippterButton.style.backgroundColor = "lightcoral"; // Falsche Antwort rot
     }
 
-    // Warte 2 Sekunden, bevor die nächste Runde gestartet wird
+    // Entfernen der Event-Listener von allen Buttons
+    document.querySelectorAll(".classAntworten").forEach(button => {
+        button.removeEventListener("click", tippeButton);
+    });
+
+    // Verzögerung, um das Ergebnis zu zeigen
     setTimeout(starteRunden, 2000);
 }
