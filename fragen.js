@@ -80,17 +80,17 @@ function tippeButton(event) {
     const buttons = document.querySelectorAll(".classAntworten");
 
     buttons.forEach(button => {
-        if (button.innerText === richtigeAntwort) {
-            button.style.backgroundColor = "lightgreen"; // Richtige Antwort grün
-        } else {
-            button.style.backgroundColor = "lightcoral"; // Falsche Antworten rot
-        }
         button.removeEventListener("click", tippeButton); // Entfernen der Event-Listener
     });
 
+    // Farbe des angeklickten Buttons ändern
     if (getippterButton.innerText === richtigeAntwort) {
+        getippterButton.style.backgroundColor = "lightgreen"; // Richtige Antwort grün
         punkte++;
+    } else {
+        getippterButton.style.backgroundColor = "lightcoral"; // Falsche Antwort rot
     }
 
-    setTimeout(starteRunden, 2000); // Verzögerung, um die Antwort zu zeigen
+    // Warte 2 Sekunden, bevor die nächste Runde gestartet wird
+    setTimeout(starteRunden, 2000);
 }
