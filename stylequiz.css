@@ -4,19 +4,21 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
+/* Überschrift */
 h1 {
     text-align: center;
     font-size: 50px;
     color: rgb(35, 143, 49);
-    margin-top: 20px;
+    margin: 20px 0; /* Etwas Platz oben und unten */
 }
 
+/* Startbutton */
 #idStarte {
     background-color: rgb(114, 148, 21);
-    border: 2px solid rgb(12, 98, 23);
+    border: 2px solid rgb(12, 98, 23); /* Vollständige Border-Definition */
     border-radius: 15px;
     color: rgb(12, 98, 23);
     padding: 32px 32px;
@@ -30,13 +32,15 @@ h1 {
     transition: background-color 0.3s;
 }
 
+/* Hover-Effekt für Startbutton */
 #idStarte:hover {
     background-color: rgb(43, 174, 33);
 }
 
+/* Frage-Button */
 #idFrage {
     background-color: rgb(114, 148, 21);
-    border: 2px solid rgb(8, 72, 43);
+    border: 2px solid rgb(8, 72, 43); /* Vollständige Border-Definition */
     border-radius: 15px;
     padding: 15px 32px;
     text-align: center;
@@ -47,9 +51,10 @@ h1 {
     color: rgb(8, 72, 43);
 }
 
+/* Antwort-Buttons */
 .classAntworten {
     background-color: rgb(117, 148, 33);
-    border: 2px solid rgb(5, 30, 8);
+    border: 2px solid rgb(5, 30, 8); /* Vollständige Border-Definition */
     border-radius: 15px;
     color: rgb(5, 30, 8);
     padding: 20px 32px;
@@ -63,13 +68,17 @@ h1 {
     transition: background-color 0.3s;
 }
 
+/* Container für Antwort-Buttons */
 #idFragen {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ermöglicht Zeilenumbruch */
     align-items: center;
     justify-content: center;
 }
 
+/* Media Queries für kleinere Bildschirme */
+
+/* Für Tablets */
 @media (max-width: 768px) {
     h1 {
         font-size: 40px;
@@ -84,6 +93,7 @@ h1 {
     }
 }
 
+/* Für Smartphones */
 @media (max-width: 480px) {
     h1 {
         font-size: 30px;
@@ -95,6 +105,6 @@ h1 {
     .classAntworten {
         font-size: 18px;
         padding: 10px;
-        width: 100%;
+        width: 100%; /* Volle Breite für bessere Benutzerfreundlichkeit */
     }
 }
