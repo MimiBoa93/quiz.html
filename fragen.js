@@ -55,7 +55,7 @@ function starteRunden() {
         document.getElementById("idAntwort2").innerHTML = arrayFragenAufbereitet[2];
         document.getElementById("idAntwort3").innerHTML = arrayFragenAufbereitet[3];
 
-        setTimeout(starteRunden, 8000);
+        setTimeout(starteRunden, 6000);
         rundenZaehler++;
     } else {
         document.getElementById("idFrage").innerHTML = "Das Spiel ist beendet. Du hast " + punkte + " Punkte erreicht!";
