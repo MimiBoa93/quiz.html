@@ -39,6 +39,7 @@ function starteRunden() {
         // Setzt alle Buttons auf transparente Farbe
         document.querySelectorAll(".classAntworten").forEach(button => {
             button.style.backgroundColor = "transparent"; // Transparent
+            button.removeEventListener("click", tippeButton); // Entfernt alte Event-Listener
         });
 
         gesperrt = false;
@@ -87,11 +88,6 @@ function tippeButton(event) {
     } else {
         getippterButton.style.backgroundColor = "lightcoral"; // Falsche Antwort rot
     }
-
-    // Entfernen der Event-Listener von allen Buttons
-    document.querySelectorAll(".classAntworten").forEach(button => {
-        button.removeEventListener("click", tippeButton);
-    });
 
     // Verzögerung, um das Ergebnis zu zeigen
     setTimeout(starteRunden, 2000);
